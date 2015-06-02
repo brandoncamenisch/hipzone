@@ -3,6 +3,7 @@ if (Meteor.isClient) {
 	// On page load lets check the API for our users information 
 	Meteor.call( "checkHipChat", function( error,  results )  {
 		var users = JSON.parse( results.content ); // Should be a json object of all users
+		Session.set( 'users', users.items );
 		users.items.forEach( function(  ) {
 			Meteor.call( 'getUserInfo', '713611', function( error, results )  {
 				console.log( 'test' );
@@ -11,26 +12,9 @@ if (Meteor.isClient) {
 	} );
 
 	Template.users.helpers ( {
-		user: [{
-			email: 'brandon@10up.com', 
-			last_active: '2015-06-01T23:26:07+0000', 
-			name: 'Brandon Camenisch', 
-			mention_name: 'brandon', 
-			photo_url: 'https://s3.amazonaws.com/uploads.hipchat.com/photos/713611/vIXhHRIiclQw7Fm_125.png', 
-			is_online: true, 
-			show: 'chat'
-		},
-		{
-			email: 'brandon@10up.com', 
-			last_active: '2015-06-01T23:26:07+0000', 
-			name: 'Brandon Camenisch', 
-			mention_name: 'brandon', 
-			photo_url: 'https://s3.amazonaws.com/uploads.hipchat.com/photos/713611/vIXhHRIiclQw7Fm_125.png', 
-			is_online: true, 
-			show: 'chat'
+	  user: function () {
+			return Session.get( 'users' );
 		}
-	]	
-
 	} );
 
 }
