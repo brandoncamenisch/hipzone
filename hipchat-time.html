@@ -3,12 +3,28 @@
 </head>
 
 <body>
-	<h1>Check your co-workers timezone and if they are online</h1>
-
-  {{> hello}}
+	<h1>HipZone</h1>
+	<aside>
+	</aside>
+	{{>timezones}}
+	{{> users}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="timezones">
+</template>
+
+<template name="users">
+	<ul>
+		{{#each user}}
+			<li>
+				<img src="{{photo_url}}">
+				{{email}}
+				{{last_active}}
+				{{name}}
+				{{mention_name}}
+				{{is_online}}
+				{{show}}
+		</li>
+		{{/each}}
+	</ul>
 </template>

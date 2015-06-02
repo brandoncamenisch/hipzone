@@ -1,1 +1,30 @@
 /* CSS declarations go here */
+body {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+	font-family:LLCircularWeb-Bold,'Helvetica Neue',Helvetica,sans-serif;
+	background: #23517F;
+	color: white;
+	padding: 0.5em;
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+	padding: 20px 10px;
+	margin: 5px 0;
+	background: whitesmoke;
+}
+img {
+	border-radius: 20px;
+	height: 40px;
+	width: 40px;
+}
+
